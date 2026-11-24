@@ -25,8 +25,8 @@ public final class CameraCraftClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openCamera.consumeClick()) {
-                if (client.player != null && client.screen == null) {
-                    client.setScreen(new CameraScreen());
+                if (client.player != null && client.gui.screen() == null) {
+                    client.gui.setScreen(new CameraScreen());
                 }
             }
         });
@@ -35,7 +35,7 @@ public final class CameraCraftClient implements ClientModInitializer {
     static void notifyPlayer(String message) {
         Minecraft client = Minecraft.getInstance();
         if (client.player != null) {
-            client.player.displayClientMessage(Component.literal("[CameraCraft] " + message), true);
+            client.player.sendSystemMessage(Component.literal("[CameraCraft] " + message));
         }
     }
 }

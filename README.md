@@ -25,26 +25,30 @@ The next engineering stages are:
 ## Build requirements
 
 - Minecraft Java Edition 26.3
-- JDK 25
+- JDK 26
 - Fabric Loader 0.20.1 or newer
 - Fabric API for 26.3
-- Gradle wrapper 9.7.1
+- Gradle 9.9.0 (the GitHub Actions workflow installs it directly)
 
-The project is configured with Fabric Loom 1.19-SNAPSHOT and Fabric API 0.162.0+26.3. Check Fabric's version selector for the newest compatible versions before building. This source archive does not include the Gradle wrapper scripts.
+The project is configured with Fabric Loom 1.19-SNAPSHOT and Fabric API 0.162.0+26.3. The client GUI code uses the Minecraft 26.3 `GuiGraphicsExtractor` and `extractRenderState` APIs. This source archive does not include the Gradle wrapper scripts; the included GitHub Actions workflow installs Gradle 9.9.0 directly.
 
 ## Build
 
+The source archive does not include `gradlew` / `gradlew.bat`. If Gradle 9.9.0 is installed locally, run:
+
 Linux/macOS:
 ```bash
-./gradlew build
+gradle clean build
 ```
 
-Windows:
+Windows PowerShell:
 ```powershell
-.\gradlew.bat build
+gradle clean build
 ```
 
-The mod JAR will be created in `build/libs/`. The build has not been executed in this environment; it requires JDK 25 and Gradle 9.7.1.
+Alternatively, push the project to GitHub and run **Actions → CameraCraft Fabric 26.3 Build**. The workflow installs JDK 26 and Gradle 9.9.0, then uploads the compiled JAR as an artifact.
+
+The mod JAR is created in `build/libs/`. The source changes in this archive have not yet been confirmed by a completed CI build; check the GitHub Actions run before distributing the JAR.
 
 ## Install
 

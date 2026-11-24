@@ -4,17 +4,21 @@
   "version": "${version}",
   "name": "CameraCraft",
   "description": "A configurable in-game photography console for Minecraft 26.3.",
-  "authors": ["CameraCraft Team"],
+  "authors": [
+    "CameraCraft Team"
+  ],
   "contact": {},
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
-    "client": ["dev.cameracraft.client.CameraCraftClient"]
+    "client": [
+      "dev.cameracraft.client.CameraCraftClient"
+    ]
   },
   "depends": {
     "fabricloader": ">=0.20.1",
     "minecraft": "~26.3",
     "fabric-api": "*",
-    "java": ">=25"
+    "java": ">=26"
   }
 }
