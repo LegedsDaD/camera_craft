@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '26'
+          java-version: '25'
 
       # 3. Verify Java
       - name: Verify Java installation
